@@ -508,6 +508,8 @@ LaTeX有两种特定的模式来排版数学公式，包括行内数学模式和
 
 行间数学模式一般用于较长的数学方程或希望单独显示的公式，使用方式为`\[...\]`和`\begin{displaymath}...\end{displaymath}。
 
+有些符号在这两种模式显示效果有很大不同。一般称行内数学模式显示的格式为文本格式，行间数学模式显示的格式为显示模式。
+
 > 注意，数学和物理文献中的标点符号全部用英文标点。输入英文的逗号和句号后，需要手动在后面打一个空格。
 >
 > ```latex
@@ -544,5 +546,78 @@ $ e^{i\pi} =1  $
 
 在TexStudio中，下标的快捷键为`Ctrl+Shift+D` ，指数的快捷键为`Ctrl+Shift+U`
 
+**平方根** 输入用`\sqrt` , n次方根用`\sqrt[n]` 来得到。仅仅需要根号，可以用`\surd`得到。
 
+在TexStudio中，平方根的快捷键为`CtrlShift+Q`
+
+**水平线** 用命令`\overline`和`\underline` 实现。注意单个字符上加一短横的命令为`\bar`
+
+**撇**  用`'` 可以输入一个撇号。
+
+**向量** 单个字符上的小箭头用`\vec`， 由A到B的向量用命令`\overrightarrow` 和`\overleftarrow` 指定。
+
+**点乘** 命令`\cdot`
+
+**函数** 通常用直立字体，LaTeX预制了很多函数命令。例如`\log, \cos` 等。如果需要自己定义函数，可以使用amsmath中的命令`\DeclareMathOperator{\xxx}{XXX}` 
+
+```latex
+\DeclarMathOperator{\st}{s.t.}
+
+%试比较下面两种表示
+$\st x>0$
+
+$s.t. x>0$
+```
+
+**取模** 有两个命令：`\bmod` 用于二元运算"a mod b"; 而`\pmod` 则用于模的方程。
+
+```latex
+$a \bmod b$\\
+$ x \equiv a \pmod {b}$
+```
+
+**分式** 上下形式的分式基本命令为`\frac` 。amsmath 提供了另外两种命令`\dfrac`和`\tfrac` , 前者无论行间环境还是行内环境都打印显示模式，后者则无论行间还是行内都打印文本模式。 一般对较小的分式可以直接输入`/` 。
+
+TexStudio 中，`\frac` 的快捷键为`Alt+Shift+F` ，`\dfrac` 的快捷键为`Ctrl + Shift + F ` 。跳到下一个可编辑区域的快捷键为`Ctrl+→` 。
+
+```latex
+$ \dfrac{1}{k} \; \frac{1}{k} \;  \tfrac{1}{k}$
+\[ \dfrac{1}{k} \; \frac{1}{k} \; \tfrac{1}{k}\]
+```
+
+**积分，求和，乘积**  他们分别用`\int, \sum, \prod` 表示，其中上限和下限用`^`和`_`表示
+
+**定界符** 小括号和中括号可以直接打出，大括号需要用`\{\}` 转义。 一般情况下需要调整定界符的大小，在左定界符前加`\left` , 并在右定界符前加`\right` 。LaTeX会自动调整定界符的大小。有时候自动调整效果不满意，可以使用`\big, \Big, \bigg, \Bigg `来调整定界符大小。
+
+TexStudio中，`\left`的快捷键为`Ctrl+Shift+L` ， `\right` 的快捷键为`Ctrl+Shift+R`。
+
+```latex
+\[ (\prod_{i=1}^{n})x_{i} ) \quad \left(\prod_{i=1}^{n} x_{i}\right )  \]
+```
+
+**三点列** `\ldots` 得到在基线上的点，`\cdots` 得到上下居中的点。另外在表格和矩阵中`\vdots` 得到竖直的点，`\ddots` 得到对角线的点。
+
+一般来说，用在列举时用基线的点，用在相似项相加时用上下居中的点。
+
+```latex
+\[ x_{1},\ldots.x_{n} \quad x_{1}+\cdots + x_{n} \]
+```
+
+下举一例运用到所有知识
+
+```latex
+$ \forall \alpha, \beta> 0,  $ 成立
+	\[ \dfrac{\alpha+\beta}{2} > \sqrt{\alpha \cdot \beta}\]
+将这个结论推广, 可以得到 ~$\forall x_{1},\ldots ,x_{n}>0, $ 
+	\[ \dfrac{x_{1}+\cdots+x_{n}  }{n} > \sqrt[n]{x_{1} \cdots x_{n}}\]
+		
+对于任意非零复向量~$\alpha,  $ 成立
+	\[ \alpha \bar{\alpha}'  >0 \]
+		
+三角不等式
+	\[\left  |\overrightarrow{AC}\right | \leq \left |\overrightarrow{AB}\right |+\left |\overrightarrow{BC}\right  | \]
+		
+一个不等式
+	\[ \prod_{i=1}^{n} x_{i}y_{i} \leq \left \{\prod_{i=1}^{n}x_{i}^{2}\right \}^{1/2} \left \{\prod_{i=1}^{n}y_{i}^{2}\right \}^{1/2}\]
+```
 
