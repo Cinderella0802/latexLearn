@@ -16,7 +16,7 @@ LaTeX是一个宏集，它使用一个预先定义好的专业版面，可以使
 
 这个排版系统的优势在于可以着眼于文章的逻辑结构，而非对版面进行修修补补。所以一般不要自定义文档版面布局。
 
-PdfLaTeX支持Pdf格式的TeX文档导出。
+XeLaTeX为latex的一个扩展。CTeX在XeLaTeX下使用更方便。
 
 下面主要以TeXStudio为编辑工具，自然也可以使用其他的软件。
 
@@ -36,9 +36,10 @@ PdfLaTeX支持Pdf格式的TeX文档导出。
 ### TexStudio安装
 
 1. 双击文件texstudio-2.10.8-win-qt5.5.1.exe，任意选择安装目录
-2. 安装完成后，在`Options->Configuer TexStudio->General->language`中选择`system`，解决中文乱码
-3. 同上选项卡中取消检查拼写
-4. 在语法高亮中选择LaTex Syntax 中的粉色为白色
+2. 安装完成后，在`Options->Configuer TexStudio->General->language`中选择`utf-8`，解决中文乱码。
+3. 在界面右下方编码处选择`utf-8` ,使得其支持CTeX和XeLaTeX。
+4. 同上选项卡中取消检查拼写
+5. 在语法高亮中选择LaTex Syntax 中的粉色为白色
 
 ## LaTeX源文件
 >Latex源文件事实上就是普通的文本文件，可以用任何支持文本编辑的软件编>辑。LaTex将文件翻译为排版的格式。
