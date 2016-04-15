@@ -524,6 +524,8 @@ LaTeX有两种特定的模式来排版数学公式，包括行内数学模式和
 
 > 注意，在数学模式中，每个字母都会被认为是一个变量名，并被排版为这种样式。如果需要排版普通的文本，就需要将文本放在`\text{...}`命令中。
 >
+> 在`\text{...}`命令中同样可以输入行内数学公式，只需要将公式包含在`$...$`之间即可。
+>
 > ```latex
 > $\forall x \in E,\text{ s.t. } x>0$
 > ```
@@ -620,4 +622,64 @@ $ \forall \alpha, \beta> 0,  $ 成立
 一个不等式
 	\[ \prod_{i=1}^{n} x_{i}y_{i} \leq \left \{\prod_{i=1}^{n}x_{i}^{2}\right \}^{1/2} \left \{\prod_{i=1}^{n}y_{i}^{2}\right \}^{1/2}\]
 ```
+
+## 数学空格
+
+有时候由TeX选择的空格不令人满意，可以插入一些特殊的空格控制命令来调整。空格由小到大依次为`\, \:, \;, \quad, \qquad`
+
+在重积分的空格选取中，amsmath提供了`\iint, \iiint, \iiiint, \idotint` 来生成重积分号。
+
+## 垂直取齐
+
+### 矩阵
+
+amsmath宏包提供了一系列用于排版的矩阵环境，都依托于LaTeX中的`array` 环境。
+
+|   环境    |     矩阵     |
+| :-----: | :--------: |
+| pmatrix |     ()     |
+| bmatrix |     []     |
+| Bmatrix |     {}     |
+| vmatrix |    \|\|    |
+| Vmatrix | \|\|  \|\| |
+
+同样也提供了用于生成行内数学模式中的小矩阵环境`smallmatrix`
+
+矩阵环境中的下一列和换行命令与表格中一致。
+
+```latex
+\[ \det(A)=\begin{vmatrix}
+		a_{11} & a_{12} & \cdots  & a_{1n}\\
+		a_{21} & a_{22} & \cdots  & a_{2n}\\
+		\cdots & \cdots & \cdots  & \cdots\\
+		a_{n1} & a_{n2} & \cdots  & a_{nn}\\
+		\end{vmatrix} \]
+```
+
+### 分段函数
+
+amsmath宏包提供了`cases` 环境用于方便排版分段函数。
+
+```latex
+\[ \delta(x)=\begin{cases}
+	1   &x=0,\\
+	0  & x\neq0.
+\end{cases} \]
+```
+
+## 长公式
+
+amsmath宏包提供了很多用于长公式排版的命令，一般基于LaTeX的`equation`和`eqnarry` 环境。但amsmath文档建议不再使用LaTeX的长公式环境。
+
+在公式环境中，命令`\tag{num} `可以生成公式的编号。命令`\notag` 可以取消公式的编号。
+
+### 单行公式
+
+`equation` 环境用于生成带编号的单行公式，`equation*` 环境则生成不带编号的单行公式。
+
+### 无对齐的多行公式
+
+`multline`环境可以将一个长公式分成几行，并赋予一个编号。一般第一行左对齐，最后一行右对齐。可以用命令`\shoveleft`和`\shoveright` 来强制左对齐或右对齐。
+
+可以用宏包选项`\reqno`和`\leqno` 来决定编号放在最后一行之后还是第一行之前。
 
