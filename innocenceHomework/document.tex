@@ -1,0 +1,149 @@
+\documentclass{ctexbook}
+\usepackage{amsmath}
+\usepackage{diagbox}
+
+\begin{document}
+	\frontmatter
+	\tableofcontents
+	\title{第二次行课}
+	\author{黄跳}
+	\maketitle
+	\mainmatter
+	\chapter{复习}
+	\section{今天天气真好}
+	\subsection{可惜不能出去玩}
+	\subsubsection{心情好郁闷啊}
+	
+	部长大大的电脑坏了，正在重修，哈哈哈
+	\section{进步}
+	\section*{没有编号啦，只是借用这个格式}
+	
+	\section{公式}
+	
+	\begin{gather}
+		\label{gougu}
+		x^{2}+y^{2}=z^{2}
+	\end{gather}
+	
+	\begin{gather}
+	\label{jifen}
+		\int_{0}^{1}x^{2}=\dfrac{1}{3}
+	\end{gather}
+	
+	我们就可以引用公式了,比如\ref{gougu}就可以得到公式了.或者\eqref{jifen},就可以得到有括号的公式了.
+	
+	\section{ 脚注}
+	脚注\footnote{看过来看过来看过来}
+	
+	\section{强调}
+	我要\emph{强调}这两个字 
+	
+	\section{列表环境}
+	\begin{itemize}
+		\item 第一行
+		\item 第二行
+	\end{itemize} 
+	
+	\section*{生成带序号的列表}
+	\begin{enumerate}
+		\item 第一行
+		\item 第二行
+	\end{enumerate}
+	
+	\section*{嵌套}
+	\begin{itemize}
+		\item 第一行
+		\begin{enumerate}
+			\item 第一行
+			\item 第二行
+		\end{enumerate}
+		\item 第二行
+		
+	\end{itemize}
+	
+	\section*{描述}
+	\begin{description}
+		\item[标签] 什么标签
+	\end{description}
+	
+	\section*{继续嵌套}
+	
+	\section{对齐}
+	\begin{flushleft}
+		左对齐
+	\end{flushleft}
+	
+	\begin{flushright}
+		右对齐
+	\end{flushright}
+	
+	\begin{center}
+		居中
+	\end{center}
+	
+	\section{引用}
+	曾经听过一句歌词，梁静茹的可惜不是你
+	\begin{quote}
+		你曾说时间还很多
+	\end{quote}
+	
+	\section{原文打印}
+	\begin{verbatim}
+	一二三
+	四五六
+	七八九
+	哈哈哈 
+	\end{verbatim}
+	
+	\section{表格}
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			一&二&三&四\\
+			\hline
+			\multicolumn{4}{|c|}{我们合并为一行}\\
+			\hline
+			\diagbox{一}{二}& \textsl{}&&\\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	\chapter{数学公式}
+	行内数学模式就长这样$ a+b=c $.
+	行间数学模式就长这样\[ a+b=c \]
+	\section{数学公式的群组}
+	$ e^i\pi=1 $
+	$ e^{i\pi}=1 $
+	
+	\begin{equation}
+	 e^{i\pi} =1
+	\end{equation}
+	
+	\begin{equation}；
+	e^{i\pi}=1
+	\end{equation}
+	
+	\section*{希腊字母}
+	
+	$ \alpha $
+	$ \beta $
+	$ \gamma $
+	$ \alpha\beta\gamma $
+	
+	\section*{上下标}
+	$ x^{2}_{1} $
+	
+	\section*{开方}
+	$ \sqrt[3]{27} $\\$ \sqrt{16} $
+	
+	$ \overline{A} $
+	
+	
+	\appendix
+	\chapter{心情指数}
+	\chapter{灵活程度}
+	 
+	 \backmatter
+	 \chapter{参考文献}
+	
+\end{document}
