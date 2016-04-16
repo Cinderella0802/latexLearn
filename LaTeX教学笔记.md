@@ -775,9 +775,9 @@ E’&=\partial\times B - 4\pi j,
 \end{align}
 \begin{alignat*}{2}
 	x& = y_1-y_2+y_3-y_5+y_8-\dots
-	&\quad& \text{式子}\\
-	& = y’\circ y^* && \text{式子}\\
-	& = y(0) y’ && \text {式子}
+	& \text{式子}\\
+	& = y'\circ y^* & \text{式子}\\
+	& = y(0) y' & \text {式子}
 \end{alignat*}
 \begin{equation*}
 	\left.\begin{aligned}
