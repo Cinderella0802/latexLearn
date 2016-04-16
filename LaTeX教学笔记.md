@@ -527,7 +527,7 @@ $ e^{i\pi} =1  $
 
 ## 数学公式的基本元素
 
-下面介绍一些数学排版中最重要的一些命令。
+下面介绍一些数学排版中最重要的一些命令。这些命令必须包括在数学模式中，即`$...$`或`\[...\]`。
 
 **希腊字母** 小写输入为`\alpha, \beta, \gamma, ...` 大写输入为`\Gamma, \Delta`
 
@@ -535,7 +535,7 @@ $ e^{i\pi} =1  $
 
 在TexStudio中，下标的快捷键为`Ctrl+Shift+D` ，指数的快捷键为`Ctrl+Shift+U`
 
-**平方根** 输入用`\sqrt` , n次方根用`\sqrt[n]` 来得到。仅仅需要根号，可以用`\surd`得到。
+**平方根** 输入用`\sqrt{}` , n次方根用`\sqrt[n]{}` 来得到。仅仅需要根号，可以用`\surd`得到。
 
 在TexStudio中，平方根的快捷键为`CtrlShift+Q`
 
@@ -545,7 +545,7 @@ $ e^{i\pi} =1  $
 
 **向量** 单个字符上的小箭头用`\vec`， 由A到B的向量用命令`\overrightarrow` 和`\overleftarrow` 指定。
 
-**点乘** 命令`\cdot`
+**点** 命令`\cdot`
 
 **函数** 通常用直立字体，LaTeX预制了很多函数命令。例如`\log, \cos` 等。如果需要自己定义函数，可以使用amsmath中的命令`\DeclareMathOperator{\xxx}{XXX}` 
 
@@ -591,6 +591,8 @@ TexStudio中，`\left`的快捷键为`Ctrl+Shift+L` ， `\right` 的快捷键为
 ```latex
 \[ x_{1},\ldots.x_{n} \quad x_{1}+\cdots + x_{n} \]
 ```
+
+### 例子
 
 下举一例运用到所有知识
 
@@ -733,5 +735,62 @@ E’&=\partial\times B - 4\pi j,
 \end{align}
 ```
 
-## 公式编号
+### 公式编号
+
+在LaTeX中，如果你想将公式编码中带上节数，可以使用命令`\numberwithin` 
+
+```latex
+\numberwithin{equation}{section}
+```
+
+因为其他公式环境都是由`equation` 生成，所以只需要定义`equation`即可。
+
+`\eqref` 提供了带括号的公式引用。
+
+环境`subequations` 可以生成类似(4.9 a),(4.9 b)之类的编号。
+
+### 例子
+
+```latex
+\begin{equation}
+	e^{i\pi}=1
+\end{equation}
+\begin{multline}
+	x^{2}+y^{2}=\\
+	 z^{2}	 
+\end{multline}
+\[ \begin{split}
+	\sum_{i=1}^{n} (x_{i}+y_{i})^{2} =& \sum_{i=1}^{n} x_{i}^{2} + \sum_{i=1}^{n} y_{i}^{2}\\
+	&+2\sum_{i=1}^{n} x_{i}y_{i}
+\end{split} \]
+\begin{gather}
+	a=b\\
+	c=d
+\end{gather}
+\begin{align}
+	x& = y_1-y_2+y_3-y_5+y_8-\dots
+	&\quad& \text{式子}\\
+	& = y’\circ y^* && \text{式子}\\
+	& = y(0) y’ && \text {式子}
+\end{align}
+\begin{alignat*}{2}
+	x& = y_1-y_2+y_3-y_5+y_8-\dots
+	&\quad& \text{式子}\\
+	& = y’\circ y^* && \text{式子}\\
+	& = y(0) y’ && \text {式子}
+\end{alignat*}
+\begin{equation*}
+	\left.\begin{aligned}
+	B’&=-\partial\times E,\\
+	E’&=\partial\times B - 4\pi j,
+    \end{aligned}
+	\right\}
+	\qquad \text{Maxwell’s equations}
+\end{equation*}
+\begin{align}
+	a^{2}\\
+	\intertext{文字}
+	b^{2}
+\end{align}
+```
 
